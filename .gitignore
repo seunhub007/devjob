@@ -5,3 +5,4 @@ terraform*
 cid_key
 .terraform.lock.hcl
 terraform.tfstate
+deployment.yaml
