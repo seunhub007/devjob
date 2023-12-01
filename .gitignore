@@ -6,3 +6,5 @@ cid_key
 .terraform.lock.hcl
 terraform.tfstate
 deployment.yaml
+run_key
+run_key.pub

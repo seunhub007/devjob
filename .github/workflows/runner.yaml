@@ -1,0 +1,18 @@
+name: "Continuous Deploy"
+on:
+    workflow_run:
+        workflows: ["Deploy Workflow"]
+        types:
+            - completed
+jobs:
+    pull_and_run_code:
+        runs-on: self-hosted
+        steps:
+            - name: "Remove container devjob102"
+              run: "sudo docker rm -f devjob102 || true"
+            
+            - name: "Get the code from Docker Hub"
+              run: "sudo docker pull seun007/devjob102:latest"
+            
+            - name: "Run the image as a container"
+              run: "sudo docker run -d -p 80:80 --name devjob102 seun007/devjob102:latest"  
